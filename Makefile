@@ -11,15 +11,19 @@ SASS_TARGET = $(CSS_DIR)/global.css
 JS_SOURCE = $(JS_DIR)/main.js
 JS_TARGET = $(JS_DIR)/main.min.js
 
+all: sass js
 
 $(SASS_TARGET): $(SASS_FILES)
 	sass 			$(SASS_GLOBAL) $@
 #	autoprefixer 	$@ -o $@ -b "> 1%, last 3 versions, Firefox ESR"
 #	cleancss 		$@ -o $@
 
+sass: $(SASS_TARGET)
 
 $(JS_TARGET): $(JS_SOURCE)
 	uglifyjs $^ -o $@
+
+js: $(JS_TARGET)
 
 watch:
 	watch make
