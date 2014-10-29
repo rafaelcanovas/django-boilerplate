@@ -24,6 +24,3 @@ $(JS_TARGET): $(JS_SOURCE)
     uglifyjs $^ -o $@
 
 js: $(JS_TARGET)
-
-watch:
-    watch make
