@@ -14,13 +14,13 @@ JS_TARGET = $(JS_DIR)/main.min.js
 all: sass js
 
 $(SASS_TARGET): $(SASS_FILES)
-    sass            $(SASS_GLOBAL) $@
-#   autoprefixer    $@ -o $@ -b "> 1%, last 3 versions, Firefox ESR"
+	sass            $(SASS_GLOBAL) $@
+#   autoprefixer    $@ -o $@
 #   cleancss        $@ -o $@
 
 sass: $(SASS_TARGET)
 
 $(JS_TARGET): $(JS_SOURCE)
-    uglifyjs $^ -o $@
+	uglifyjs $^ -o $@
 
 js: $(JS_TARGET)

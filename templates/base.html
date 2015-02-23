@@ -10,10 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    {% block extra_head %}{% endblock %}
+    {% block head_extra %}{% endblock %}
 </head>
 <body>
     <header>
+        {% block header %}
+        {% endblock %}
     </header>
 
     <main>
@@ -22,12 +24,13 @@
     </main>
 
     <footer>
+        {% block footer %}
+        {% endblock %}
     </footer>
 
-    <!-- Used for dialogs, screen overlays, etc. -->
-    {% block extra_body %}{% endblock %}
+    {% block body_extra %}{% endblock %}
 
     <script src="{% static 'js/main.js' %}"></script>
-    {% block extra_scripts %}{% endblock %}
+    {% block scripts_extra %}{% endblock %}
 </body>
 </html>
