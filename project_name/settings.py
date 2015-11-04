@@ -18,12 +18,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/{{ docs_version }}/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(
-    'SECRET_KEY',
-    '{{ secret_key }}')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
@@ -79,7 +77,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -89,7 +87,7 @@ DATABASES = {
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
+# https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -103,7 +101,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
 STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 
@@ -112,6 +110,10 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.environ.get('STATIC_ROOT')
+
+
+# Media files (user uploaded files)
+# https://docs.djangoproject.com/en/{{ docs_version }}/topics/files/
 
 MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
 
